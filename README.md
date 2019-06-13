@@ -28,6 +28,10 @@ To run PyCalc from the your system's command-line, you can execute the following
 $ python3 pycalc.py
 ```
 
+## Screenshot
+
+![Screenshot](screenshot.png)
+
 ## About the Author
 
 - [Leodanis Pozo Ramos](https://lpozo.github.com/)
