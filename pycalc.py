@@ -28,11 +28,38 @@ class PyCalcCtrl:
         self._pycalc = QApplication(sys.argv)
         # GUI
         self._ui = PyCalcUi()
+        # Model
+        self._evaluate = evaluateExpression
+
+        self._connectSignals()
 
     def runApp(self):
         """Run the application."""
         self._ui.show()
         sys.exit(self._pycalc.exec_())
+
+    def _calculateResult(self):
+        """Evaluate expressions."""
+        result = self._evaluate(expression=self._ui.displayText())
+        self._ui.setDisplayText(result)
+
+    def _buildExpression(self, sub_exp):
+        """Build expression."""
+        if self._ui.displayText() == ERROR_MSG:
+            self._ui.clearDisplay()
+
+        expression = self._ui.displayText() + sub_exp
+        self._ui.setDisplayText(expression)
+
+    def _connectSignals(self):
+        """Connect signals and slots."""
+        for btn_text, btn in self._ui.buttons.items():
+            if btn_text not in {'=', 'C'}:
+                btn.clicked.connect(partial(self._buildExpression, btn_text))
+
+        self._ui.buttons['='].clicked.connect(self._calculateResult)
+        self._ui.display.returnPressed.connect(self._calculateResult)
+        self._ui.buttons['C'].clicked.connect(self._ui.clearDisplay)
 
 
 class PyCalcUi(QMainWindow):
