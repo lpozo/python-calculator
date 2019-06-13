@@ -35,3 +35,7 @@ $ python3 pycalc.py
 ## About the Author
 
 - [Leodanis Pozo Ramos](https://lpozo.github.com/)
+
+## License
+
+PyCalc is released under the [MIT License](https://opensource.org/licenses/MIT).
