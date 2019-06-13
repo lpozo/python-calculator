@@ -34,18 +34,20 @@ class PyCalcCtrl:
     def __init__(self):
         """Controller initializer."""
         super(PyCalcCtrl, self).__init__()
-        # Application
+        # Create the PyQt Application
         self._pycalc = QApplication(sys.argv)
-        # GUI
+        # Create the GUI
         self._ui = PyCalcUi()
-        # Model
+        # Create the Model
         self._evaluate = evaluateExpression
-
+        # Connect signals and slots
         self._connectSignals()
 
     def runApp(self):
         """Run the application."""
+        # Show the GUI
         self._ui.show()
+        # Run PyQt main loop
         sys.exit(self._pycalc.exec_())
 
     def _calculateResult(self):
@@ -78,12 +80,15 @@ class PyCalcUi(QMainWindow):
     def __init__(self):
         """UI initializer."""
         super().__init__()
+        # Set some main window's properties
         self.setWindowTitle("PyCalc")
         self.setFixedSize(235, 235)
+        # Create and set the central widget and the general layout
         self.generalLayout = QVBoxLayout()
         self._centralWidget = QWidget(self)
         self.setCentralWidget(self._centralWidget)
         self._centralWidget.setLayout(self.generalLayout)
+        # Create the display and the buttons
         self._createDisplay()
         self._createButtons()
 
@@ -101,12 +106,14 @@ class PyCalcUi(QMainWindow):
         self.setDisplayText('')
 
     def _createDisplay(self):
-        """Create display."""
+        """Create the display."""
+        # Create the display widget
         self.display = QLineEdit()
+        # Set some display's properties
         self.display.setFixedHeight(35)
         self.display.setAlignment(Qt.AlignRight)
         self.display.setReadOnly(True)
-
+        # Add the display widget to the general layout
         self.generalLayout.addWidget(self.display)
 
     def _createButtons(self):
@@ -135,12 +142,12 @@ class PyCalcUi(QMainWindow):
                    '+': (3, 3),
                    '=': (3, 4),
                    }
-
+        # Create the buttons
         for btn_text, pos in buttons.items():
             self.buttons[btn_text] = QPushButton(btn_text)
             self.buttons[btn_text].setFixedSize(40, 40)
             buttonsLayout.addWidget(self.buttons[btn_text], pos[0], pos[1])
-
+        # Add the buttons to the general layout
         self.generalLayout.addLayout(buttonsLayout)
 
 
@@ -158,9 +165,12 @@ def evaluateExpression(expression):
 # Client code
 def main():
     """Main function."""
+    # Create the controller
     app_ctrl = PyCalcCtrl()
+    # Run the application
     app_ctrl.runApp()
 
 
 if __name__ == '__main__':
+    # Run the application's main function
     main()
