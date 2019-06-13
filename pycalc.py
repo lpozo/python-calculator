@@ -107,6 +107,17 @@ class PyCalcUi(QMainWindow):
         self.generalLayout.addLayout(buttonsLayout)
 
 
+# Model
+def evaluateExpression(expression):
+    """Evaluate a expression."""
+    try:
+        result = str(eval(expression, {}, {}))
+    except:
+        result = ERROR_MSG
+
+    return result
+
+
 # Client code
 def main():
     """Main function."""
