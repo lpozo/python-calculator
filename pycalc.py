@@ -64,20 +64,20 @@ class PyCalcCtrl:
 
 
 class PyCalcUi(QMainWindow):
-    """PyCalc View or UI class."""
+    """PyCalc the View (UI)."""
 
     def __init__(self):
-        """UI initializer."""
+        """View initializer."""
         super().__init__()
         # Set some main window's properties
-        self.setWindowTitle("PyCalc")
+        self.setWindowTitle('PyCalc')
         self.setFixedSize(235, 235)
         # Create and set the central widget and the general layout
         self.generalLayout = QVBoxLayout()
         self._centralWidget = QWidget(self)
         self.setCentralWidget(self._centralWidget)
         self._centralWidget.setLayout(self.generalLayout)
-        # Create the display and the buttons
+        # Create the display, and the buttons
         self._createDisplay()
         self._createButtons()
 
@@ -102,11 +102,11 @@ class PyCalcUi(QMainWindow):
         self.display.setFixedHeight(35)
         self.display.setAlignment(Qt.AlignRight)
         self.display.setReadOnly(True)
-        # Add the display widget to the general layout
+        # Add the display to the general layout
         self.generalLayout.addWidget(self.display)
 
     def _createButtons(self):
-        """Create buttons."""
+        """Create the buttons."""
         self.buttons = {}
         buttonsLayout = QGridLayout()
         #     btn_text | position in the QGridLayout
@@ -142,7 +142,7 @@ class PyCalcUi(QMainWindow):
 
 # Model
 def evaluateExpression(expression):
-    """Evaluate a expression."""
+    """Evaluate an expression."""
     try:
         result = str(eval(expression, {}, {}))
     except:
@@ -158,16 +158,17 @@ def main():
 
 
 def createPyqt5Calculator():
+    """Create the PyQt5 Calculator."""
     # 1. Create the PyQt5 Application
     pycalc = QApplication(sys.argv)
-    # 2. Create the View
+    # 2. Create the main PyQt5 UI
     view = PyCalcUi()
-    # 3. Show the View
+    # 3. Show the UI
     view.show()
     # 4. Create the model, and the controller
     model = evaluateExpression
-    controller = PyCalcCtrl(model, view)
-    # 5. Run PyQt5 main loop
+    PyCalcCtrl(model, view)
+    # 5. Run the main PyQt5 loop
     sys.exit(pycalc.exec_())
 
 
