@@ -31,24 +31,13 @@ ERROR_MSG = 'ERROR'
 class PyCalcCtrl:
     """PyCalc Controller class."""
 
-    def __init__(self):
+    def __init__(self, model, view):
         """Controller initializer."""
         super(PyCalcCtrl, self).__init__()
-        # Create the PyQt Application
-        self._pycalc = QApplication(sys.argv)
-        # Create the GUI
-        self._ui = PyCalcUi()
-        # Create the Model
-        self._evaluate = evaluateExpression
+        self._evaluate = model
+        self._ui = view
         # Connect signals and slots
         self._connectSignals()
-
-    def runApp(self):
-        """Run the application."""
-        # Show the GUI
-        self._ui.show()
-        # Run PyQt main loop
-        sys.exit(self._pycalc.exec_())
 
     def _calculateResult(self):
         """Evaluate expressions."""
@@ -165,10 +154,21 @@ def evaluateExpression(expression):
 # Client code
 def main():
     """Main function."""
-    # Create the controller
-    app_ctrl = PyCalcCtrl()
-    # Run the application
-    app_ctrl.runApp()
+    createPyqt5Calculator()
+
+
+def createPyqt5Calculator():
+    # 1. Create the PyQt5 Application
+    pycalc = QApplication(sys.argv)
+    # 2. Create the View
+    view = PyCalcUi()
+    # 3. Show the View
+    view.show()
+    # 4. Create the model, and the controller
+    model = evaluateExpression
+    controller = PyCalcCtrl(model, view)
+    # 5. Run PyQt5 main loop
+    sys.exit(pycalc.exec_())
 
 
 if __name__ == '__main__':
