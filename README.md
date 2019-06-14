@@ -30,7 +30,7 @@ After this steps are finished, you can run and test PyCalc as described in the n
 
 ## How to Run PyCalc
 
-To run PyCalc from the your system's command-line and try it out, you can execute the following command:
+To run PyCalc from your system's command-line and try it out, you can execute the following command:
 
 ```console
 $ python3 pycalc.py
