@@ -35,32 +35,32 @@ class PyCalcCtrl:
         """Controller initializer."""
         super(PyCalcCtrl, self).__init__()
         self._evaluate = model
-        self._ui = view
+        self._view = view
         # Connect signals and slots
         self._connectSignals()
 
     def _calculateResult(self):
         """Evaluate expressions."""
-        result = self._evaluate(expression=self._ui.displayText())
-        self._ui.setDisplayText(result)
+        result = self._evaluate(expression=self._view.displayText())
+        self._view.setDisplayText(result)
 
     def _buildExpression(self, sub_exp):
         """Build expression."""
-        if self._ui.displayText() == ERROR_MSG:
-            self._ui.clearDisplay()
+        if self._view.displayText() == ERROR_MSG:
+            self._view.clearDisplay()
 
-        expression = self._ui.displayText() + sub_exp
-        self._ui.setDisplayText(expression)
+        expression = self._view.displayText() + sub_exp
+        self._view.setDisplayText(expression)
 
     def _connectSignals(self):
         """Connect signals and slots."""
-        for btn_text, btn in self._ui.buttons.items():
+        for btn_text, btn in self._view.buttons.items():
             if btn_text not in {'=', 'C'}:
                 btn.clicked.connect(partial(self._buildExpression, btn_text))
 
-        self._ui.buttons['='].clicked.connect(self._calculateResult)
-        self._ui.display.returnPressed.connect(self._calculateResult)
-        self._ui.buttons['C'].clicked.connect(self._ui.clearDisplay)
+        self._view.buttons['='].clicked.connect(self._calculateResult)
+        self._view.display.returnPressed.connect(self._calculateResult)
+        self._view.buttons['C'].clicked.connect(self._view.clearDisplay)
 
 
 class PyCalcUi(QMainWindow):
