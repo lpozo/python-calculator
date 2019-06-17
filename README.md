@@ -38,6 +38,12 @@ $ python3 pycalc.py
 
 After running this command, you'll see PyCalc running on your screen.
 
+## How to Use PyCalc
+
+To use PyCalc, you just need to enter a valid math expression using your mouse, and then press `Enter` or click on the `=` sign:
+
+![Screenshot](pycalc-howto.gif)
+
 ## About the Author
 
 My name is Leodanis Pozo Ramos. I'm a **freelance Python Developer and [technical writer](https://realpython.com/team/lpozoramos/)**. If you need more information about me, and my work, then you can take a look at my [personal page](https://lpozo.github.com/).
