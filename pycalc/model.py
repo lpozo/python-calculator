@@ -16,7 +16,7 @@ from . import ERROR_MSG
 class PyCalcModel:
     """PyCalcModel class."""
 
-    def evaluateExpression(self, expression):
+    def evaluate_expression(self, expression):
         """Evaluate an expression."""
         try:
             result = str(eval(expression, {}, {}))

@@ -23,7 +23,6 @@ __author__ = "Leodanis Pozo Ramos"
 # Client code
 def main():
     """Main function."""
-    pyqt_app()
 
 
 def pyqt_app():
@@ -49,8 +48,14 @@ def pyqt_app():
 
 def tk_app():
     """Tkinter implementation."""
-    pass
+    from pycalc.tk_view import PyCalcUi
+    from pycalc.tk_controller import PyCalcCtrl
+    from pycalc.model import PyCalcModel
 
+    view = PyCalcUi()
+    model = PyCalcModel()
+    controller = PyCalcCtrl(model, view)
+    controller.run()
 
 if __name__ == "__main__":
     main()

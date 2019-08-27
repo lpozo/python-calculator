@@ -1,4 +1,4 @@
-# Filename: controller.py
+# Filename: qt_controller.py
 
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -32,7 +32,7 @@ class PyCalcCtrl:
 
     def _calculateResult(self):
         """Evaluate expressions."""
-        result = self._model.evaluateExpression(self._view.displayText())
+        result = self._model.evaluate_expression(self._view.displayText())
         self._view.setDisplayText(result)
 
     def _buildExpression(self, sub_exp):
@@ -45,9 +45,9 @@ class PyCalcCtrl:
 
     def _connectSignals(self):
         """Connect signals and slots."""
-        for btn_text, btn in self._view.buttons.items():
-            if btn_text not in {"=", "C"}:
-                btn.clicked.connect(partial(self._buildExpression, btn_text))
+        for btnText, btn in self._view.buttons.items():
+            if btnText not in {"=", "C"}:
+                btn.clicked.connect(partial(self._buildExpression, btnText))
 
         self._view.buttons["="].clicked.connect(self._calculateResult)
         self._view.display.returnPressed.connect(self._calculateResult)
