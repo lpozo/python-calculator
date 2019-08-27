@@ -15,6 +15,7 @@
 import sys
 
 from pycalc.model import PyCalcModel
+from pycalc.config import PyCalcConfig
 
 __version__ = "0.1"
 __author__ = "Leodanis Pozo Ramos"
@@ -23,10 +24,15 @@ __author__ = "Leodanis Pozo Ramos"
 # Client code
 def main():
     """Main function."""
+    ui = PyCalcConfig('config.ini').read()
+
+    globals()[f'{ui}_app']()
 
 
-def pyqt_app():
+def pyqt5_app():
     """PyQt5 implementation."""
+    PyCalcConfig('config.ini').write()
+
     # Import QApplication and the required widgets from PyQt5.QtWidgets
     from PyQt5.QtWidgets import QApplication
 
@@ -46,8 +52,10 @@ def pyqt_app():
     sys.exit(pycalc.exec_())
 
 
-def tk_app():
+def tkinter_app():
     """Tkinter implementation."""
+    PyCalcConfig('config.ini').write()
+
     from pycalc.tk_view import PyCalcUi
     from pycalc.tk_controller import PyCalcCtrl
     from pycalc.model import PyCalcModel
@@ -56,6 +64,7 @@ def tk_app():
     model = PyCalcModel()
     controller = PyCalcCtrl(model, view)
     controller.run()
+
 
 if __name__ == "__main__":
     main()
