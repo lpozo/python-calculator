@@ -26,7 +26,6 @@ class PyCalcCtrl:
 
     def run(self):
         """Run the controller."""
-        self._view.show()
         # Connect signals and slots
         self._connectSignals()
 

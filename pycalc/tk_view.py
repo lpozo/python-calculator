@@ -38,6 +38,7 @@ class PyCalcUi(Tk):
         # Create the display widget
         self.display = Entry(self, state='readonly', justify='right')
         self.display.grid(row=0, columnspan=5, sticky='we', padx=1, pady=1)
+        self.display.focus_set()
 
     def _create_buttons(self):
         """Create the buttons."""

@@ -29,9 +29,7 @@ class PyCalcCtrl:
         # Connect commands
         self._connect_commands()
 
-        self._view.mainloop()
-
-    def _calculate_result(self):
+    def _calculate_result(self, event=None):
         """Evaluate expressions."""
         result = self._model.evaluate_expression(self._view.display_text())
         self._view.set_display_text(result)
@@ -51,5 +49,5 @@ class PyCalcCtrl:
                 btn.config(command=partial(self._build_expression, btn_text))
 
         self._view.buttons["="].config(command=self._calculate_result)
-        # self._view.display.returnPressed.connect(self._calculate_result)
+        self._view.display.bind("<Key>", self._calculate_result)
         self._view.buttons["C"].config(command=self._view.clear_display)

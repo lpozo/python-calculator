@@ -38,6 +38,7 @@ class PyCalcUi(QMainWindow):
         # Create the display and the buttons
         self._createDisplay()
         self._createButtons()
+        self.show()
 
     def _createDisplay(self):
         """Create the display."""

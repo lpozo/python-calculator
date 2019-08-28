@@ -10,7 +10,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""PyCalc is a simple calculator built using Python and PyQt5."""
+"""PyCalc is a simple calculator built using Python, PyQt5, and Tkinter."""
 
 import sys
 
@@ -64,6 +64,7 @@ def tkinter_app():
     model = PyCalcModel()
     controller = PyCalcCtrl(model, view)
     controller.run()
+    view.mainloop()
 
 
 if __name__ == "__main__":
