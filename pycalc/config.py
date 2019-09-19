@@ -23,7 +23,9 @@ class PyCalcConfig:
         """Write config file."""
         if self.read() == 'pyqt5':
             self.config['General']['UI'] = 'tkinter'
-        else:
+        elif self.read() == 'tkinter':
+            self.config['General']['UI'] = 'wxpython'
+        elif self.read() == 'wxpython':
             self.config['General']['UI'] = 'pyqt5'
 
         with open(self.file_path, 'w') as configfile:

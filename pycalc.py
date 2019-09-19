@@ -24,9 +24,10 @@ __author__ = "Leodanis Pozo Ramos"
 # Client code
 def main():
     """Main function."""
-    ui = PyCalcConfig('config.ini').read()
+    # ui = PyCalcConfig('config.ini').read()
 
-    globals()[f'{ui}_app']()
+    # globals()[f'{ui}_app']()
+    wxpython_app()
 
 
 def pyqt5_app():
@@ -58,13 +59,28 @@ def tkinter_app():
 
     from pycalc.tk_view import PyCalcUi
     from pycalc.tk_controller import PyCalcCtrl
-    from pycalc.model import PyCalcModel
 
     view = PyCalcUi()
     model = PyCalcModel()
     controller = PyCalcCtrl(model, view)
     controller.run()
     view.mainloop()
+
+
+def wxpython_app():
+    """Tkinter implementation."""
+    PyCalcConfig('config.ini').write()
+    import wx
+
+    from pycalc.wx_view import PyCalcUi
+    from pycalc.wx_controller import PyCalcCtrl
+
+    pycalc = wx.App()
+    view = PyCalcUi()
+    model = PyCalcModel()
+    controller = PyCalcCtrl(model, view)
+    controller.run()
+    pycalc.MainLoop()
 
 
 if __name__ == "__main__":
