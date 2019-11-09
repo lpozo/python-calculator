@@ -21,31 +21,35 @@ class PyCalcUi(wx.Frame):
     def __init__(self):
         """View initializer."""
         super().__init__(parent=None, title="PyCalc")
+        self.panel = wx.Panel(self)
         self.generalSizer = wx.BoxSizer(wx.VERTICAL)
+        self.panel.SetSizer(self.generalSizer)
         # Set some main window's properties
-        self.SetMaxSize((235, 235))
-        self.SetMinSize((235, 235))
+        self.SetMaxSize((250, 250))
+        self.SetMinSize((250, 250))
         # Create the display and the buttons
-        # self._createDisplay()
-        # self._createButtons()
+        self._createDisplay()
+        self._createButtons()
         self.Show()
 
     def _createDisplay(self):
         """Create the display."""
         # Create the display widget
-        self.display = wx.TextCtrl(self)
+        sizer = wx.BoxSizer()
+        self.display = wx.TextCtrl(self.panel)
+        sizer.Add(self.display)
         # Set some display's properties
         # self.display.setFixedHeight(35)
         # self.display.setAlignment(Qt.AlignRight)
         # self.display.setReadOnly(True)
         # Add the display to the general layout
-        self.generalSizer.Add(self.display)
+        self.generalSizer.Add(sizer)
 
     def _createButtons(self):
         """Create the buttons."""
         self.buttons = {}
-        buttonsLayout = QGridLayout()
-        # Button text | position on the QGridLayout
+        buttonsSizer = wx.GridSizer(5, 4, 4)
+        # Button text
         buttons = {
             "7": (0, 0),
             "8": (0, 1),
@@ -70,11 +74,10 @@ class PyCalcUi(wx.Frame):
         }
         # Create the buttons and add them to the grid layout
         for btnText, pos in buttons.items():
-            self.buttons[btnText] = QPushButton(btnText)
-            self.buttons[btnText].setFixedSize(40, 40)
-            buttonsLayout.addWidget(self.buttons[btnText], pos[0], pos[1])
-        # Add buttonsLayout to the general layout
-        self.generalLayout.addLayout(buttonsLayout)
+            self.buttons[btnText] = wx.Button(self.panel, label=btnText, size=(40, 40))
+            buttonsSizer.Add(self.buttons[btnText])
+        # Add buttonsSizer to the general layout
+        self.generalSizer.Add(buttonsSizer)
 
     def setDisplayText(self, text):
         """Set display's text."""
