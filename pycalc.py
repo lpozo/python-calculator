@@ -13,7 +13,8 @@
 """PyCalc is a simple calculator built using Python.
 
 The application is implemented using the MVC pattern. Views and controllers
-are provided for PyQt5, PySide2, wxPython and Tkinter."""
+are provided for PyQt5, PySide2, wxPython and Tkinter. Every time you run the
+app, the views change alternatively from a framework to another."""
 
 import sys
 
