@@ -11,7 +11,6 @@
 """PyCalc is a simple calculator built using Python and PySide2."""
 
 # Import QApplication and the required widgets from PySide2.QtWidgets
-
 from PySide2.QtWidgets import QMainWindow
 from PySide2.QtWidgets import QWidget
 from PySide2.QtWidgets import QVBoxLayout
