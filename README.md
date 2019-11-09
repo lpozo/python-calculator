@@ -2,7 +2,7 @@
 
 PyCalc is a sample calculator implemented using Python 3. The GUI is built using [PyQt5](https://www.riverbankcomputing.com/static/Docs/PyQt5/introduction.html), [Tkinter](), [PySide2](), and [wxPython]() to show the flexibility of the Model-View-Controller (MVC) pattern.
 
-PyCalc implements the most basic math operations:
+PyCalc implements only the most basic math operations, that is:
 
 - division
 - multiplication
