@@ -10,7 +10,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""PyCalc is a simple calculator built using Python, PyQt5, and Tkinter."""
+"""PyCalc is a simple calculator built using Python.
+
+The application is implemented using the MVC pattern. Views and controllers
+are provided for PyQt5, PySide2, wxPython and Tkinter."""
 
 import sys
 
