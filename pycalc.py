@@ -30,7 +30,8 @@ def main():
     # ui = PyCalcConfig('config.ini').read()
 
     # globals()[f'{ui}_app']()
-    wxpython_app()
+    # wxpython_app()
+    pyside2_app()
 
 
 def pyqt5_app():
@@ -42,6 +43,29 @@ def pyqt5_app():
 
     from pycalc.qt_view import PyCalcUi
     from pycalc.qt_controller import PyCalcCtrl
+
+    # Create an instance of `QApplication`
+    pycalc = QApplication(sys.argv)
+    # Create the calculator's GUI
+    view = PyCalcUi()
+    # Create the model
+    model = PyCalcModel()
+    # Create the controller and run it
+    controller = PyCalcCtrl(model=model, view=view)
+    controller.run()
+    # Execute calculator's main loop
+    sys.exit(pycalc.exec_())
+
+
+def pyside2_app():
+    """PySide2 implementation."""
+    PyCalcConfig('config.ini').write()
+
+    # Import QApplication and the required widgets from PyQt5.QtWidgets
+    from PySide2.QtWidgets import QApplication
+
+    from pycalc.ps2_view import PyCalcUi
+    from pycalc.ps2_controller import PyCalcCtrl
 
     # Create an instance of `QApplication`
     pycalc = QApplication(sys.argv)
