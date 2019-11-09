@@ -104,6 +104,7 @@ def wxpython_app():
 
     pycalc = wx.App()
     view = PyCalcUi()
+    pycalc.SetTopWindow(view)
     model = PyCalcModel()
     controller = PyCalcCtrl(model, view)
     controller.run()
