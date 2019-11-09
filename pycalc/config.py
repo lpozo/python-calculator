@@ -11,12 +11,16 @@
 """PyCalc is a simple calculator built using Python."""
 
 import configparser
+from pathlib import Path
 
 
 class PyCalcConfig:
     """PyCalcConfig class."""
     def __init__(self, file_path):
-        self.file_path = file_path
+        self.file_path = Path(file_path)
+        if not self.file_path.exists():
+            with open('config.ini', 'w', encoding='UTF-8') as file:
+                file.writelines(('[General]', '\n', 'ui = pyqt5'))
         self.config = configparser.ConfigParser()
 
     def write(self):
