@@ -28,11 +28,11 @@ __author__ = "Leodanis Pozo Ramos"
 # Client code
 def main():
     """Main function."""
-    # ui = PyCalcConfig('config.ini').read()
-
-    # globals()[f'{ui}_app']()
-    # wxpython_app()
-    pyside2_app()
+    ui = PyCalcConfig('config.ini').read()
+    try:
+        globals()[f'{ui}_app']()
+    except ModuleNotFoundError as e:
+        print(e, file=sys.stderr)
 
 
 def pyqt5_app():
