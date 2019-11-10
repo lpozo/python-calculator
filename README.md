@@ -15,11 +15,11 @@ PyCalc is intended to be a demonstrative example on how you can implement a Pyth
 
 ### PyQt5 GUI
 
-![Screenshot](screenshot.png)
+![Screenshot](pyqt-screenshot.png)
 
 ### Tkinter GUI
 
-![Screenshot](screenshot.png)
+![Screenshot](pyqt-screenshot.png)
 
 ## Requirements
 
