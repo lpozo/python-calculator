@@ -19,7 +19,15 @@ PyCalc is intended to be a demonstrative example on how you can implement a Pyth
 
 ### Tkinter GUI
 
-![Screenshot](pyqt-screenshot.png)
+![Screenshot](tkinter-screenshot.png)
+
+### PySide2 GUI
+
+![Screenshot](pyside2-screenshot.png)
+
+### wxPython GUI
+
+![Screenshot](wxpython-screenshot.png)
 
 ## Requirements
 
