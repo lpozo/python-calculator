@@ -14,7 +14,7 @@
 
 The application is implemented using the MVC pattern. Views and controllers
 are provided for PyQt5, PySide2, wxPython and Tkinter. Every time you run the
-app, the views change alternatively from a framework to another."""
+app, the view changes alternatively from a framework to another."""
 
 import sys
 
@@ -46,7 +46,7 @@ def pyqt5_app():
     from pycalc.qt_view import PyCalcUi
     from pycalc.qt_controller import PyCalcCtrl
 
-    # Create an instance of `QApplication`
+    # Create an instance of QApplication
     pycalc = QApplication(sys.argv)
 
     # Create the calculator's GUI
@@ -67,7 +67,7 @@ def pyside2_app():
     """PySide2 implementation."""
     PyCalcConfig('config.ini').write()
 
-    # Import QApplication from PyQt5.QtWidgets
+    # Import QApplication from PySide2.QtWidgets
     from PySide2.QtWidgets import QApplication
 
     # Import the view and the controller

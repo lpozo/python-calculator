@@ -8,7 +8,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""PyCalc is a simple calculator built using Python and Tkinter."""
+"""PyCalc is a simple calculator built using Python and the MVC pattern."""
 
 # Import Tkinter classes
 from tkinter import Tk
@@ -29,7 +29,7 @@ class PyCalcUi(Tk):
         self.maxsize(231, 229)
         self.minsize(231, 229)
 
-    #     # Create the display and the buttons
+        # Create the display and the buttons
         self._create_display()
         self._create_buttons()
 

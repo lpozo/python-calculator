@@ -8,7 +8,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""PyCalc is a simple calculator built using Python and PySide2."""
+"""PyCalc is a simple calculator built using Python and the MVC pattern."""
 
 from functools import partial
 

@@ -1,4 +1,4 @@
-# Filename: qt_view.py
+# Filename: wx_view.py
 
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -8,7 +8,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""PyCalc is a simple calculator built using Python and PyQt5."""
+"""PyCalc is a simple calculator built using Python and the MVC pattern."""
 
 # Import wx package
 import wx

@@ -8,7 +8,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""PyCalc is a simple calculator built using Python."""
+"""PyCalc is a simple calculator built using Python and the MVC pattern."""
 
 import configparser
 from pathlib import Path
@@ -20,7 +20,7 @@ class PyCalcConfig:
         self.file_path = Path(file_path)
         if not self.file_path.exists():
             with open('config.ini', 'w', encoding='UTF-8') as file:
-                file.writelines(('[General]', '\n', 'ui = pyqt5'))
+                file.writelines(('[General]', '\n', 'ui = tkinter'))
         self.config = configparser.ConfigParser()
 
     def write(self):

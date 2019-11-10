@@ -8,7 +8,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""PyCalc is a simple calculator built using Python and PyQt5."""
+"""PyCalc is a simple calculator built using Python and the MVC pattern."""
 
 from functools import partial
 
@@ -49,7 +49,7 @@ class PyCalcCtrl:
         self._view.setDisplayText(expression)
 
     def _bindEvents(self):
-        """Connect signals and slots."""
+        """Bind events."""
         for btnText, btn in self._view.buttons.items():
             if btnText not in {"=", "C"}:
                 self._view.Bind(wx.EVT_BUTTON,
