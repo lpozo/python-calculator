@@ -10,23 +10,22 @@
 
 """PyCalc is a simple calculator built using Python and PyQt5."""
 
-# Import QApplication and the required widgets from PyQt5.QtWidgets
+# Import wx package
 import wx
 
 
-# Create a subclass of QMainWindow to setup the calculator's GUI
+# Create a subclass of wx.Frame to setup the calculator's GUI
 class PyCalcUi(wx.Frame):
     """PyCalc's View (GUI)."""
 
     def __init__(self):
         """View initializer."""
         super().__init__(parent=None, title="PyCalc")
-        self.panel = wx.Panel(self)
+        self.panel = wx.Panel(self, size=(248, 248))
         self.generalSizer = wx.BoxSizer(wx.VERTICAL)
-        self.panel.SetSizer(self.generalSizer)
-        # Set some main window's properties
-        self.SetMaxSize((250, 250))
-        self.SetMinSize((250, 250))
+        self.panel.SetSizerAndFit(self.generalSizer)
+        self.SetMaxSize((250, 268))
+        self.SetMinSize((250, 268))
         # Create the display and the buttons
         self._createDisplay()
         self._createButtons()
@@ -36,19 +35,17 @@ class PyCalcUi(wx.Frame):
         """Create the display."""
         # Create the display widget
         sizer = wx.BoxSizer()
-        self.display = wx.TextCtrl(self.panel)
-        sizer.Add(self.display)
-        # Set some display's properties
-        # self.display.setFixedHeight(35)
-        # self.display.setAlignment(Qt.AlignRight)
-        # self.display.setReadOnly(True)
-        # Add the display to the general layout
+        self.display = wx.TextCtrl(self.panel,
+                                   style=wx.TE_READONLY|wx.ALIGN_RIGHT)
+        self.display.SetMinSize((242, 35))
+        sizer.Add(self.display, flag=wx.ALL, border=4)
+        # Add the display to the general sizer
         self.generalSizer.Add(sizer)
 
     def _createButtons(self):
         """Create the buttons."""
         self.buttons = {}
-        buttonsSizer = wx.GridSizer(5, 4, 4)
+        buttonsSizer = wx.GridBagSizer(hgap=2, vgap=2)
         # Button text
         buttons = {
             "7": (0, 0),
@@ -72,21 +69,23 @@ class PyCalcUi(wx.Frame):
             "+": (3, 3),
             "=": (3, 4),
         }
-        # Create the buttons and add them to the grid layout
+        # Create the buttons and add them to the grid sizer
         for btnText, pos in buttons.items():
-            self.buttons[btnText] = wx.Button(self.panel, label=btnText, size=(40, 40))
-            buttonsSizer.Add(self.buttons[btnText])
-        # Add buttonsSizer to the general layout
+            self.buttons[btnText] = wx.Button(self.panel,
+                                              label=btnText,
+                                              size=(40, 40))
+            buttonsSizer.Add(self.buttons[btnText], pos, flag=wx.ALL, border=4)
+        # Add buttonsSizer to the general sizer
         self.generalSizer.Add(buttonsSizer)
 
     def setDisplayText(self, text):
         """Set display's text."""
-        self.display.setText(text)
-        self.display.setFocus()
+        self.display.SetValue(text)
+        self.display.SetFocus()
 
     def displayText(self):
         """Get display's text."""
-        return self.display.text()
+        return self.display.GetValue()
 
     def clearDisplay(self):
         """Clear the display."""
