@@ -12,6 +12,8 @@
 
 from functools import partial
 
+import wx
+
 from . import ERROR_MSG
 
 
@@ -26,15 +28,19 @@ class PyCalcCtrl:
 
     def run(self):
         """Run the controller."""
-        # Connect signals and slots
-        # self._connectSignals()
+        # Bind events
+        self._bindEvents()
 
-    def _calculateResult(self):
+    def _calculateResult(self, event):
         """Evaluate expressions."""
         result = self._model.evaluate_expression(self._view.displayText())
         self._view.setDisplayText(result)
 
-    def _buildExpression(self, sub_exp):
+    def _clearDisplay(self, event):
+        """Clear the display."""
+        self._view.clearDisplay()
+
+    def _buildExpression(self, sub_exp, event):
         """Build expression."""
         if self._view.displayText() == ERROR_MSG:
             self._view.clearDisplay()
@@ -42,12 +48,20 @@ class PyCalcCtrl:
         expression = self._view.displayText() + sub_exp
         self._view.setDisplayText(expression)
 
-    def _connectSignals(self):
+    def _bindEvents(self):
         """Connect signals and slots."""
         for btnText, btn in self._view.buttons.items():
             if btnText not in {"=", "C"}:
-                btn.clicked.connect(partial(self._buildExpression, btnText))
+                self._view.Bind(wx.EVT_BUTTON,
+                                partial(self._buildExpression, btnText),
+                                btn)
 
-        self._view.buttons["="].clicked.connect(self._calculateResult)
-        self._view.display.returnPressed.connect(self._calculateResult)
-        self._view.buttons["C"].clicked.connect(self._view.clearDisplay)
+        self._view.Bind(wx.EVT_BUTTON,
+                        self._calculateResult,
+                        self._view.buttons["="])
+        self._view.Bind(wx.EVT_BUTTON,
+                        self._clearDisplay,
+                        self._view.buttons["C"])
+        self._view.Bind(wx.EVT_COMMAND_ENTER,
+                        self._calculateResult,
+                        self._view.display)
