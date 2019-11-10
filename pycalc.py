@@ -21,7 +21,7 @@ import sys
 from pycalc.model import PyCalcModel
 from pycalc.config import PyCalcConfig
 
-__version__ = "0.1"
+__version__ = "0.2"
 __author__ = "Leodanis Pozo Ramos"
 
 
