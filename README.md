@@ -39,7 +39,6 @@ $ source pycalc/bin/activate
 $ pip install pyqt5
 $ pip install pyside2
 $ pip install wxpython
-$ pip install tkinter
 ```
 
 After this steps are finished, you can run and test PyCalc as described in the next section.
