@@ -39,7 +39,7 @@ Here are some screenshots of the different GUIs of PyCalc.
 
 For PyCalc to work, you need to have a proper installation of [Python](https://www.python.org) >= 3.6. Since PyCalc depends on PyQt5, Tkinter, PySide2, and wxPython to work, you can use a virtual environment to test PyCalc out. To do that, you can run the following commands:
 
-```console
+```sh
 $ python3 -m venv pycalc
 $ source pycalc/bin/activate
 $ pip install pyqt5
@@ -53,7 +53,7 @@ After these steps are done, you can run and test PyCalc as described in the next
 
 To run PyCalc from your system's command-line and try it out, you can execute the following command:
 
-```console
+```sh
 $ git clone https://github.com/lpozo/python-calculator.git
 $ cd python-calculator
 $ python3 main.py
