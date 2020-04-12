@@ -21,7 +21,7 @@ import sys
 from pycalc.evaluator import Evaluator
 from pycalc.config import PyCalcConfig
 
-__version__ = "0.2"
+__version__ = "1.0"
 __author__ = "Leodanis Pozo Ramos"
 
 
