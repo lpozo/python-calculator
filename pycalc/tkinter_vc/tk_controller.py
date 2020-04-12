@@ -12,7 +12,7 @@
 
 from functools import partial
 
-from . import ERROR_MSG
+from pycalc import ERROR_MSG
 
 
 # Create a Controller class to connect the GUI and the model
@@ -31,7 +31,7 @@ class PyCalcCtrl:
 
     def _calculate_result(self, event=None):
         """Evaluate expressions."""
-        result = self._model.evaluate_expression(self._view.display_text())
+        result = self._model.evaluate(self._view.display_text())
         self._view.set_display_text(result)
 
     def _build_expression(self, sub_exp):
