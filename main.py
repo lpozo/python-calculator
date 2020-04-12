@@ -18,7 +18,7 @@ app, the view changes alternatively from a framework to another."""
 
 import sys
 
-from pycalc.model import PyCalcModel
+from pycalc.evaluator import Evaluator
 from pycalc.config import PyCalcConfig
 
 __version__ = "0.2"
@@ -43,8 +43,8 @@ def pyqt5_app():
     from PyQt5.QtWidgets import QApplication
 
     # Import the view and the controller
-    from pycalc.qt_view import PyCalcUi
-    from pycalc.qt_controller import PyCalcCtrl
+    from pycalc.pyqt5_vc.qt_view import PyCalcUi
+    from pycalc.pyqt5_vc.qt_controller import PyCalcCtrl
 
     # Create an instance of QApplication
     pycalc = QApplication(sys.argv)
@@ -53,7 +53,7 @@ def pyqt5_app():
     view = PyCalcUi()
 
     # Create the model
-    model = PyCalcModel()
+    model = Evaluator()
 
     # Create the controller and run it
     controller = PyCalcCtrl(model=model, view=view)
@@ -71,8 +71,8 @@ def pyside2_app():
     from PySide2.QtWidgets import QApplication
 
     # Import the view and the controller
-    from pycalc.ps2_view import PyCalcUi
-    from pycalc.ps2_controller import PyCalcCtrl
+    from pycalc.pyside2_vc.ps2_view import PyCalcUi
+    from pycalc.pyside2_vc.ps2_controller import PyCalcCtrl
 
     # Create an instance of QApplication
     pycalc = QApplication(sys.argv)
@@ -81,7 +81,7 @@ def pyside2_app():
     view = PyCalcUi()
 
     # Create the model
-    model = PyCalcModel()
+    model = Evaluator()
 
     # Create the controller and run it
     controller = PyCalcCtrl(model=model, view=view)
@@ -96,14 +96,14 @@ def tkinter_app():
     PyCalcConfig('config.ini').write()
 
     # Import the view and the controller
-    from pycalc.tk_view import PyCalcUi
-    from pycalc.tk_controller import PyCalcCtrl
+    from pycalc.tkinter_vc.tk_view import PyCalcUi
+    from pycalc.tkinter_vc.tk_controller import PyCalcCtrl
 
     # Create the calculator's GUI
     view = PyCalcUi()
 
     # Create the model
-    model = PyCalcModel()
+    model = Evaluator()
 
     # Create the controller and run it
     controller = PyCalcCtrl(model, view)
@@ -120,8 +120,8 @@ def wxpython_app():
     import wx
 
     # Import the view and the controller
-    from pycalc.wx_view import PyCalcUi
-    from pycalc.wx_controller import PyCalcCtrl
+    from pycalc.wxpython_vc.wx_view import PyCalcUi
+    from pycalc.wxpython_vc.wx_controller import PyCalcCtrl
 
     # Create an instance of wx.App
     pycalc = wx.App()
@@ -131,7 +131,7 @@ def wxpython_app():
     pycalc.SetTopWindow(view)
 
     # Create the model
-    model = PyCalcModel()
+    model = Evaluator()
 
     # Create the controller and run it
     controller = PyCalcCtrl(model, view)
