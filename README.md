@@ -1,6 +1,6 @@
 # PyCalc
 
-PyCalc is a sample calculator implemented using Python 3. The GUI is built using [PyQt5](https://www.riverbankcomputing.com/static/Docs/PyQt5/introduction.html), [Tkinter](), [PySide2](), and [wxPython]() to show the flexibility of the Model-View-Controller (MVC) pattern.
+PyCalc is a sample calculator implemented using Python 3. The GUI is built using [PyQt5](https://www.riverbankcomputing.com/static/Docs/PyQt5/introduction.html), [Tkinter](https://docs.python.org/3/library/tkinter.html), [PySide2](https://wiki.qt.io/Qt_for_Python), and [wxPython](https://realpython.com/python-gui-with-wxpython/) to show the flexibility of the Model-View-Controller (MVC) pattern.
 
 PyCalc implements only the most basic math operations, that is:
 
@@ -9,7 +9,9 @@ PyCalc implements only the most basic math operations, that is:
 - addition
 - subtraction
 
-PyCalc is intended to be a demonstrative example on how you can implement a Python GUI applications using the most popular libraries for GUI design that are available today.
+PyCalc is intended to be a demonstrative example of how you can implement a Python GUI applications using the most popular libraries for GUI design that are available today.
+
+PyCalc is a sample project that extends the example I used in the [Real Python](https://realpython.com/) tutorial: [Python and PyQt: Building a GUI Desktop Calculator](https://realpython.com/python-pyqt-gui-calculator/).
 
 ## Screenshot
 
