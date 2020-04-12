@@ -11,25 +11,29 @@ PyCalc implements only the most basic math operations, that is:
 
 PyCalc is intended to be a demonstrative example of how you can implement a Python GUI applications using the most popular libraries for GUI design that are available today.
 
-PyCalc is a sample project that extends the example I used in the [Real Python](https://realpython.com/) tutorial: [Python and PyQt: Building a GUI Desktop Calculator](https://realpython.com/python-pyqt-gui-calculator/).
+PyCalc is a sample project that extends the example I used in my [Real Python](https://realpython.com/) tutorial: [Python and PyQt: Building a GUI Desktop Calculator](https://realpython.com/python-pyqt-gui-calculator/).
 
-## Screenshot
+![Real Python Tutorial](real-python-image.jpeg)
+
+## PyCalc's GUI
+
+Here are some screenshots of the different GUIs of PyCalc.
 
 ### PyQt5 GUI
 
-![Screenshot](pyqt-screenshot.png)
+![PyQt5 GUI](pyqt-screenshot.png)
 
 ### Tkinter GUI
 
-![Screenshot](tkinter-screenshot.png)
+![Tkinter GUI](tkinter-screenshot.png)
 
 ### PySide2 GUI
 
-![Screenshot](pyside2-screenshot.png)
+![PySide2 GUI](pyside2-screenshot.png)
 
 ### wxPython GUI
 
-![Screenshot](wxpython-screenshot.png)
+![wxPython GUI](wxpython-screenshot.png)
 
 ## Requirements
 
@@ -43,17 +47,19 @@ $ pip install pyside2
 $ pip install wxpython
 ```
 
-After this steps are finished, you can run and test PyCalc as described in the next section.
+After these steps are done, you can run and test PyCalc as described in the next section.
 
 ## How to Run PyCalc
 
 To run PyCalc from your system's command-line and try it out, you can execute the following command:
 
 ```console
-$ python3 pycalc.py
+$ git clone https://github.com/lpozo/python-calculator.git
+$ cd python-calculator
+$ python3 main.py
 ```
 
-After running this command, you'll see PyCalc running on your screen. If you close the application and reopen it again, then you'll see that the interface changes to another framework.
+After running these commands, you'll see PyCalc's GUI running on your screen. If you close the application and reopen it again, then you'll see that the interface changes to another framework.
 
 ## How to Use PyCalc
 
