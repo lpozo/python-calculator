@@ -1,4 +1,4 @@
-# Filename: model.py
+# Filename: evaluator.py
 
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -12,14 +12,15 @@
 
 from . import ERROR_MSG
 
-# Create a Model to handle the calculator's operation
-class PyCalcModel:
-    """PyCalcModel class."""
 
-    def evaluate_expression(self, expression):
+# Create a Model to handle the calculator's operation
+class Evaluator:
+    """Evaluator class."""
+
+    def evaluate(self, expression):
         """Evaluate an expression."""
         try:
-            result = str(eval(expression, {}, {}))
+            result = str(eval(expression, {"__import__": {}}, {}))
         except Exception:
             result = ERROR_MSG
 
